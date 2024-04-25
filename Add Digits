@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int sum = 0;
+    int addDigits(int num) {
+        if((num<=0) && (sum<10))
+        {
+            return sum;
+        }
+        if ((num==0) && (sum>=10))
+        {
+            num = sum;
+            sum = 0;
+            return addDigits(num);
+        }
+
+        sum = sum + (num%10);
+        return addDigits(num/10);
+    }
+};
